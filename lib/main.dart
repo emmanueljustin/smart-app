@@ -23,6 +23,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.white,
+          primary: const Color(0xFF94C4E1),
+          secondary: const Color(0xFF1A1A2E),
+        ),
+        // primaryColor: const Color(0xFF3699DB),
       ),
       home: LoginScreen(),
     );

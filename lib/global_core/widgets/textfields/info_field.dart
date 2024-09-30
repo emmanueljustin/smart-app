@@ -26,8 +26,6 @@ class InformationTextField extends StatelessWidget {
         labelStyle: const TextStyle(
           color: Colors.black,
         ),
-        // fillColor: Colors.white,
-        // filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -8,12 +10,23 @@ class HeaderInterceptor extends InterceptorsWrapper {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    final data = hiveService.getLoginInfo();
-    if (data != null) {
-      options.headers['Authorization'] = data.token;
+    final token = hiveService.getJwtToken();
+    if (token != null) {
+      options.headers['Authorization'] = token;
     }
     options.headers['Accept'] = 'application/json';
+    options.headers['Content-Type'] = 'application/json';
 
-    super.onRequest(options, handler);
+    log("URI: ${options.path}");
+    log("Parameter: ${options.data}");
+
+    return super.onRequest(options, handler);
+  }
+
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    log(response.data.toString());
+
+    return handler.next(response);
   }
 }

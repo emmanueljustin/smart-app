@@ -23,3 +23,10 @@ class OnLogin extends LoginEvent {
     params,
   ];
 }
+
+class CheckHive extends LoginEvent {
+  const CheckHive();
+  
+  @override
+  List<Object> get props => [];
+}

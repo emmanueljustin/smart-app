@@ -1,15 +1,18 @@
 class ApiRoutes {
 
   // Base Url
-  static const String baseUrl = 'http://127.0.0.1:8000/api';
+  static const String baseUrl = 'http://192.168.0.150:8080/api';
 
   // API type
   static const String auth = 'auth';
 
+  // API version
+  static const String ver = 'v1';
+
   // Api Routes
-  String get userLogin => '$baseUrl/$auth/login';
-  String get userRegister => '$baseUrl/$auth/register';
-  String get userLogout => '$baseUrl/$auth/logout';
-  String get refreshToken => '$baseUrl/$auth/refresh';
-  String get getUser => '$baseUrl/$auth/user';
+  String get userLogin => '$baseUrl/$ver/$auth/login';
+  String get userRegister => '$baseUrl/$ver/$auth/register';
+  // String get userLogout => '$baseUrl/$ver/$auth/logout';
+  // String get refreshToken => '$baseUrl/$ver/$auth/refresh';
+  String get getUser => '$baseUrl/$ver/$auth/user';
 }

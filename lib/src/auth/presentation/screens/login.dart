@@ -1,10 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:smartapp/global_core/widgets/textfields/email_field.dart';
+import 'package:smartapp/global_core/widgets/textfields/info_field.dart';
 import 'package:smartapp/global_core/widgets/textfields/password_field.dart';
 import 'package:smartapp/global_core/widgets/title.dart';
+import 'package:smartapp/src/auth/core/parameters.dart';
+import 'package:smartapp/src/auth/presentation/blocs/login/login_bloc.dart';
 import 'package:smartapp/src/auth/presentation/screens/register.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -12,18 +13,14 @@ class LoginScreen extends StatelessWidget {
 
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
 
-  final TextEditingController _email = TextEditingController();
+  final TextEditingController _username = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
-  final FocusNode _emailFocus = FocusNode();
+  final FocusNode _usernameFocus = FocusNode();
   final FocusNode _passwordFocus = FocusNode();
 
   @override
   Widget build(BuildContext context) {
-
-    // bool _keyboardVisible = false;
-
-    // _keyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.primary,
       body: SafeArea(
@@ -149,9 +146,11 @@ class LoginScreen extends StatelessWidget {
                           const SizedBox(
                             height: 40.0,
                           ),
-                          EmailTextField(
-                            controller: _email,
-                            focus: _emailFocus,
+                          InformationTextField(
+                            fieldName: "Username",
+                            icon: const Icon(Icons.person),
+                            controller: _username,
+                            focus: _usernameFocus,
                           ),
                           const SizedBox(
                             height: 20.0,
@@ -168,8 +167,7 @@ class LoginScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton(
                               onPressed: () {
-                                log(_email.text);
-                                log(_password.text);
+                                context.read<LoginBloc>().add(OnLogin(LoginParams(username: _username.text, password: _password.text)));
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Theme.of(context).colorScheme.secondary,
@@ -195,7 +193,8 @@ class LoginScreen extends StatelessWidget {
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton(
                               onPressed: () {
-                                _emailFocus.unfocus();
+                                // context.read<LoginBloc>().add(const CheckHive());
+                                _usernameFocus.unfocus();
                                 _passwordFocus.unfocus();
                                 Navigator.push(
                                   context,

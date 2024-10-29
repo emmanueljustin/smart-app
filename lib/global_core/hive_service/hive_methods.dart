@@ -12,6 +12,14 @@ class HiveMethods {
     return _hiveBoxes.userBox.get('user_info');
   }
 
+  Future<void> setJwtToken(String? data) async {
+    await _hiveBoxes.userBox.put('token', data);
+  }
+
+  String? getJwtToken() {
+    return _hiveBoxes.userBox.get('token');
+  }
+
   void clearBoxes() {
     _hiveBoxes.userBox.clear();
   }

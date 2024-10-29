@@ -5,28 +5,28 @@ enum LoginStatus { initial, loading, success, failed }
 class LoginState extends Equatable {
   const LoginState({
     this.status = LoginStatus.initial,
-    this.loginInfo,
+    this.token = '',
     this.error = '',
   });
 
   final LoginStatus status;
-  final LoginInfoModel? loginInfo;
+  final String token;
   final String error;
 
   LoginState copyWith({
     LoginStatus? status,
-    LoginInfoModel? loginInfo,
+    String? token,
     String? error,
   }) => LoginState(
     status: status ?? this.status,
-    loginInfo: loginInfo ?? this.loginInfo,
+    token: token ?? this.token,
     error: error ?? this.error,
   );
   
   @override
   List<Object?> get props => [
     status,
-    loginInfo,
+    token,
     error,
   ];
 }

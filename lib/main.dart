@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:smartapp/global_core/locator.dart';
-import 'package:smartapp/src/auth/presentation/screens/login.dart';
+// import 'package:smartapp/src/auth/presentation/screens/login.dart';
 import 'package:smartapp/global_core/providers/bloc_providers.dart';
+import 'package:smartapp/src/home/presentation/screens/home.dart';
 
 import 'global_core/hive_service/hive_boxes.dart';
 
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
           secondary: const Color(0xFF1A1A2E),
         ),
       ),
-      home: LoginScreen(),
+      home: const HomeScreen(),
     );
   }
 }

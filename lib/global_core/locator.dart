@@ -5,6 +5,8 @@ import 'package:smartapp/src/auth/data/repositories/auth_repository_impl.dart';
 import 'package:smartapp/src/auth/domain/repositories/auth_repository.dart';
 import 'package:smartapp/src/auth/domain/usecases/user_login_usecase.dart';
 
+import '../src/auth/domain/usecases/user_register_usecase.dart';
+
 final getIt = GetIt.instance;
 
 Future<void> setupLocator() async {
@@ -23,4 +25,5 @@ void _authModules() {
 
   // Usecases
   getIt.registerLazySingleton<UserLoginUsecase>(() => UserLoginUsecase(getIt()));
+  getIt.registerLazySingleton<UserRegisterUsecase>(() => UserRegisterUsecase(getIt()));
 }

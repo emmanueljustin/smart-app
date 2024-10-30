@@ -9,7 +9,7 @@ class ApiRoutes {
   // API version
   static const String ver = 'v1';
 
-  // Api Routes
+  // Api Endpoints
   String get userLogin => '$baseUrl/$ver/$auth/login';
   String get userRegister => '$baseUrl/$ver/$auth/register';
   // String get userLogout => '$baseUrl/$ver/$auth/logout';

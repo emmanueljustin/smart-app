@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.white,
+          // primary: const Color(0xFFE0F7FA)
           primary: const Color(0xFF94C4E1),
           secondary: const Color(0xFF1A1A2E),
         ),

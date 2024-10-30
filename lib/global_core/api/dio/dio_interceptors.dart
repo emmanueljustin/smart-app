@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
 
 import '../../hive_service/hive_methods.dart';
 
@@ -16,9 +17,19 @@ class HeaderInterceptor extends InterceptorsWrapper {
     }
     options.headers['Accept'] = 'application/json';
     options.headers['Content-Type'] = 'application/json';
-
-    log("URI: ${options.path}");
-    log("Parameter: ${options.data}");
+    
+    var logger = Logger(
+      filter: null,
+      output: null,
+      printer: PrettyPrinter(
+        printEmojis: false,
+        methodCount: 0,
+      )
+    );
+    
+    logger.d(
+      "Uri: ${options.path}\nParams: ${options.data}"
+    );
 
     return super.onRequest(options, handler);
   }
@@ -26,6 +37,7 @@ class HeaderInterceptor extends InterceptorsWrapper {
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     log(response.data.toString());
+    log(response.realUri.toString());
 
     return handler.next(response);
   }

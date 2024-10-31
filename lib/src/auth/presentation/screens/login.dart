@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF2F2F2),
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Form(

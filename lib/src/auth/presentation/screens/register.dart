@@ -32,7 +32,7 @@ class RegisterScreen extends StatelessWidget {
     return BlocProvider<WidgetsHelperCubit<String?>>(
       create: (context) => WidgetsHelperCubit<String?>(null),
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF2F2F2),
         body: BlocBuilder<WidgetsHelperCubit<String?>, String?>(
           builder: (context, selectedGender) {
             return SingleChildScrollView(

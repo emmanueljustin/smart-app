@@ -16,6 +16,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<OnAuthStarted>(_onAuthStarted);
     on<OnLogin>(_onLogin);
     on<CheckHive>(_checkHive);
+    on<OnLogout>(_onLogout);
   }
 
   final userLogin = GetIt.instance<UserLoginUsecase>();
@@ -50,5 +51,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   FutureOr<void> _checkHive(CheckHive event, Emitter<LoginState> emit) async {
     log("::: <> ${hiveService.getJwtToken()}");
     // hiveService.clearBoxes();
+  }
+
+  FutureOr<void> _onLogout(OnLogout event, Emitter<LoginState> emit) async {
+    hiveService.clearBoxes();
+    emit(state.copyWith(status: LoginStatus.initial, token: ''));
   }
 }

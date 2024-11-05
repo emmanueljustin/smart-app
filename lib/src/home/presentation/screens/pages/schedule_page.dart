@@ -66,6 +66,12 @@ class SchedulePage extends StatelessWidget {
                   leftChevronMargin: EdgeInsets.all(0),
                   rightChevronMargin: EdgeInsets.all(0),
                 ),
+                calendarStyle: CalendarStyle(
+                  todayDecoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    shape: BoxShape.circle,
+                  ),
+                ),
               ),
             ),
             const SizedBox(

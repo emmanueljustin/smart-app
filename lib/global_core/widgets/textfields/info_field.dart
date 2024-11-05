@@ -6,13 +6,17 @@ class InformationTextField extends StatelessWidget {
     required this.fieldName,
     required this.icon,
     required this.controller,
-    required this.focus,  
+    required this.focus,
+    this.textCapitalization = TextCapitalization.none,
+    this.keyboardType
   });
 
   final String fieldName;
   final Icon icon;
   final TextEditingController controller;
   final FocusNode focus;
+  final TextCapitalization textCapitalization;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,8 @@ class InformationTextField extends StatelessWidget {
       controller: controller,
       focusNode: focus,
       autovalidateMode: AutovalidateMode.onUserInteraction,
+      textCapitalization: textCapitalization,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         prefixIcon: icon,
         labelText: fieldName,

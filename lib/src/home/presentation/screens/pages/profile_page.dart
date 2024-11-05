@@ -1,8 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smartapp/global_core/widgets/divider_with_name.dart';
+import 'package:smartapp/src/auth/presentation/blocs/login/login_bloc.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -306,7 +308,11 @@ class ProfilePage extends StatelessWidget {
                           elevation: 1.0,
                           borderRadius: BorderRadius.circular(20.0),
                           child: ListTile(
-                            onTap: () => log('Logout'),
+                            onTap: () {
+                              // log(context.read<LoginBloc>().state.token);
+                              context.read<LoginBloc>().add(const OnLogout());
+                              // context.read<LoginBloc>().add(const CheckHive());
+                            },
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),

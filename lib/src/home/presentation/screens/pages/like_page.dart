@@ -118,7 +118,7 @@ class LikePage extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('El Nido',
+                              const Text('Blue Lagoon',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -140,7 +140,7 @@ class LikePage extends StatelessWidget {
                                   ),
                                   Expanded(
                                     child: Text(
-                                      'Palawan, Philippines',
+                                      'Grindavík, Iceland',
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         color: Colors.grey[600],

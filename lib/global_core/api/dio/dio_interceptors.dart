@@ -36,6 +36,7 @@ class HeaderInterceptor extends InterceptorsWrapper {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
+    log(response.statusCode.toString());
     log(response.data.toString());
     log(response.realUri.toString());
 

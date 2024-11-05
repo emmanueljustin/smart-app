@@ -30,3 +30,10 @@ class CheckHive extends LoginEvent {
   @override
   List<Object> get props => [];
 }
+
+class OnLogout extends LoginEvent {
+  const OnLogout();
+
+  @override
+  List<Object> get props => [];
+}

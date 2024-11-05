@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   final pages = [
     const HomePage(),
-    const LikePage(),
+    LikePage(),
     const SchedulePage(),
     const ProfilePage()
   ];
